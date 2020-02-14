@@ -1,1 +1,1 @@
-# workshop-basic-vue-todo
+# Workshop Basic Vue.js (Todo List)
