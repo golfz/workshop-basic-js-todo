@@ -4,35 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TODO</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div class="container">
     <h1>Todo List</h1>
     <form>
       <input type="text" name="add-todo-input" placeholder="Add a new todo...">
-      <button type="submit">Add</button>
+      <button class="btn btn-add" type="submit">Add</button>
     </form>
     <input type="text" name="search" placeholder="Search...">
     <ul>
       <li>
-        <input type="checkbox">
-        Buy orange
-        <button></button>
+        <input type="checkbox">Buy orange
+        <button class="btn-delete-task"></button>
       </li>
       <li>
-        <input type="checkbox">
-        Buy a bottle of beer
-        <button></button>
+        <input type="checkbox">Buy a bottle of beer
+        <button class="btn-delete-task"></button>
       </li>
       <li>
-        <input type="checkbox">
-        Clean a car
-        <button></button>
+        <input type="checkbox">Clean a car
+        <button class="btn-delete-task"></button>
       </li>
       <li>
-        <input type="checkbox">
-        Go to workout
-        <button></button>
+        <input type="checkbox">Go to workout
+        <button class="btn-delete-task"></button>
       </li>
     </ul>
   </div>
