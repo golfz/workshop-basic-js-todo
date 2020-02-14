@@ -28,3 +28,9 @@ addTodoForm.addEventListener('submit', event => {
   const todo = generateTemplate(task)
   list.innerHTML += todo
 })
+
+list.addEventListener('click', event => {
+  if (event.target.classList.contains(btnDeleteClass)) {
+      event.target.parentElement.remove()
+  }
+})
