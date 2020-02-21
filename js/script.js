@@ -1,10 +1,12 @@
-const todoListClass = 'todo-list'
-const btnDeleteClass = 'btn-delete-task'
+//
+const el = selector => {
+  return document.querySelector(selector)
+}
 
-const addTodoForm = document.querySelector('#add-todo-form')
-const todoList = document.querySelector(`.${todoListClass}`)
-const btnDelete = document.querySelector(`.${btnDeleteClass}`)
-const tbSearch = document.querySelector('#search')
+const formAddTask = el('#add-todo-form')
+const tbNewTask = formAddTask['add-todo-input']
+const todoList = el('.todo-list')
+const tbSearch = el('#search')
 
 todoList.innerHTML = ''
 
@@ -12,7 +14,7 @@ const generateTaskTemplate = task => {
   const item = `
   <li>
     <input type="checkbox">${task}
-    <button class="${btnDeleteClass}"></button>
+    <button class="btn-delete-task"></button>
   </li>
   `
   todoList.innerHTML += item
@@ -29,11 +31,11 @@ const filterTodos = text => {
 }
 
 // add todo
-addTodoForm.addEventListener('submit', event => {
+formAddTask.addEventListener('submit', event => {
   event.preventDefault()
 
-  const task = addTodoForm['add-todo-input'].value.trim()
-  addTodoForm.reset()
+  const task = tbNewTask.value.trim()
+  formAddTask.reset()
 
   if(!task) return
 
@@ -42,7 +44,7 @@ addTodoForm.addEventListener('submit', event => {
 
 // delete todo
 todoList.addEventListener('click', event => {
-  if (event.target.classList.contains(btnDeleteClass)) {
+  if (event.target.classList.contains('btn-delete-task')) {
       event.target.parentElement.remove()
   }
 })
@@ -57,8 +59,7 @@ todoList.addEventListener('change', event => {
 })
 
 // search
-tbSearch.addEventListener('keyup', () => {
-  console.log('hello')
-  const text = tbSearch.value.trim().toLowerCase()
+tbSearch.addEventListener('keyup', event => {
+  const text = event.target.value.trim().toLowerCase()
   filterTodos(text)
 })
