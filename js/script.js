@@ -4,6 +4,7 @@ const btnDeleteClass = 'btn-delete-task'
 const addTodoForm = document.querySelector('#add-todo-form')
 const todoList = document.querySelector(`.${todoListClass}`)
 const btnDelete = document.querySelector(`.${btnDeleteClass}`)
+const tbSearch = document.querySelector('#search')
 
 todoList.innerHTML = ''
 
@@ -15,6 +16,16 @@ const generateTaskTemplate = task => {
   </li>
   `
   todoList.innerHTML += item
+}
+
+const filterTodos = text => {
+  Array.from(todoList.children)
+    .filter(todo => !todo.textContent.toLowerCase().includes(text))
+    .forEach(todo => todo.classList.add('filtered'))
+
+  Array.from(todoList.children)
+    .filter(todo => todo.textContent.toLowerCase().includes(text))
+    .forEach(todo => todo.classList.remove('filtered'))
 }
 
 // add todo
@@ -43,4 +54,11 @@ todoList.addEventListener('change', event => {
   } else {
     event.target.parentElement.classList.remove('done')
   }
+})
+
+// search
+tbSearch.addEventListener('keyup', () => {
+  console.log('hello')
+  const text = tbSearch.value.trim().toLowerCase()
+  filterTodos(text)
 })
