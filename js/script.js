@@ -5,7 +5,7 @@ const addTodoForm = document.querySelector('#add-todo-form')
 const list = document.querySelector(`.${todoListClass}`)
 const btnDelete = document.querySelector(`.${btnDeleteClass}`)
 
-const generateTemplate = task => {
+const generateTaskTemplate = task => {
   const item = `
   <li>
     <input type="checkbox">${task}
@@ -25,7 +25,7 @@ addTodoForm.addEventListener('submit', event => {
 
   if(!task) return
 
-  const todo = generateTemplate(task)
+  const todo = generateTaskTemplate(task)
   list.innerHTML += todo
 })
 
