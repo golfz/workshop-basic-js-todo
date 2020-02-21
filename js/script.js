@@ -12,7 +12,8 @@ const generateTaskTemplate = task => {
     <button class="${btnDeleteClass}"></button>
   </li>
   `
-  return item
+
+  list.innerHTML += item
 }
 
 list.innerHTML = ''
@@ -25,8 +26,7 @@ addTodoForm.addEventListener('submit', event => {
 
   if(!task) return
 
-  const todo = generateTaskTemplate(task)
-  list.innerHTML += todo
+  generateTaskTemplate(task)
 })
 
 list.addEventListener('click', event => {
